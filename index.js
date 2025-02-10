@@ -1,4 +1,3 @@
-// Global function to maintain compatibility with onclick
 function addTodo() {
     const newTodoInput = document.getElementById('new-todo');
     const todoText = newTodoInput.value.trim();
@@ -10,8 +9,8 @@ function addTodo() {
         li.innerHTML = `
             <span>${todoText}</span>
             <div class="todo-buttons">
-                <button class="complete-btn" onclick="toggleComplete(this)">Complete</button>
-                <button class="delete-btn" onclick="deleteTodo(this)">Delete</button>
+                <button class="complete-btn" onclick="toggleComplete(this)">✅</button>
+                <button class="delete-btn" onclick="deleteTodo(this)">❌</button>
             </div>
         `;
         
@@ -20,6 +19,25 @@ function addTodo() {
     }
 }
 
+function toggleComplete(button) {
+    const li = button.closest('li');
+    li.classList.toggle('completed');
+}
+
+function deleteTodo(button) {
+    const li = button.closest('li');
+    li.remove();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const newTodoInput = document.getElementById('new-todo');
+    
+    newTodoInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            addTodo();
+        }
+    });
+});
 // Separate functions for complete and delete
 function toggleComplete(button) {
     const li = button.closest('li');
