@@ -2,14 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Todo App</title>
+    <title>Todo List</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="heading">Todo List</h1>
-    <input type="text" id="new-todo" placeholder="Enter a new task">
-    <button id="addbtn" onclick="addTodo()">Add Task</button>
-    <ul id="todo-list"></ul>
+    <div class="container">
+        <h1 class="heading">Todo List</h1>
+        <div id="todo-input-container">
+            <input type="text" id="new-todo" placeholder="Enter a new task">
+            <button id="addbtn" onclick="addTodo()">Add</button>
+        </div>
+        <ul id="todo-list"></ul>
+    </div>
 
     <script src="index.js"></script>
 </body>
